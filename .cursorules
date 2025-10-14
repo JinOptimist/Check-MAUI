@@ -1,0 +1,37 @@
+# Cursor Rules: File Structure Guidelines for this MAUI project
+
+## Purpose
+All contributors must keep the project aligned with the agreed MAUI structure to maintain clarity and scale safely.
+
+## Required structure (top-level)
+- Keep only application bootstrap files at the root:
+  - `App.xaml`, `App.xaml.cs`, `AppShell.xaml`, `AppShell.xaml.cs`, `MauiProgram.cs`, `GlobalUsings.cs`, `*.csproj`
+- Place platform-specific code in `Platforms/<Platform>/` (Android, iOS, MacCatalyst, Windows, Tizen).
+- Place shared resources in `Resources/` organized by type (`Styles`, `Fonts`, `Images`, `Raw`, `AppIcon`, `Splash`).
+
+## UI and MVVM
+- Put XAML pages in `Views/Pages/` with matching `.xaml.cs` beside them.
+- Put custom controls in `Views/Controls/` and data templates in `Views/Templates/`.
+- Put behaviors and converters under `Views/Behaviors/` and `Views/Converters/` respectively.
+- Put view models in `ViewModels/` (e.g., `MainPage` ↔ `MainPageViewModel`).
+- Put domain models in `Models/`.
+
+## Services and Data
+- Put application services in `Services/` (subfolders by domain, e.g., `Api/`, `Storage/`).
+- Put repositories and data access in `Data/` (e.g., `Repositories/`, `LocalDb/`).
+
+## Namespaces
+- Namespaces must mirror folders (e.g., `HelloMaui.Views.Pages.MainPage`).
+- XAML `x:Class` should match the fully qualified type.
+- XAML namespace mappings (e.g., `xmlns:local`) must be updated when files move.
+
+## PR checklist
+- New pages go under `Views/Pages/` with paired `.xaml.cs`.
+- Updated/moved files have corrected namespaces and `x:Class`.
+- No XAML or page code-behind files in the repository root.
+- Platform-specific changes remain under `Platforms/*` only.
+
+## Documentation
+- Any structure changes must be reflected in `docs/file-structure.md`.
+
+
