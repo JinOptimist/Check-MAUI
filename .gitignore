@@ -1,0 +1,93 @@
+# ------------------------------------------------------------
+# .gitignore for .NET MAUI / .NET / Visual Studio projects
+# Tailored for multi-platform MAUI (Android, iOS, MacCatalyst, Windows, Tizen)
+# ------------------------------------------------------------
+
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.VC.db
+*.VC.VC.opendb
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+nuget.config
+NuGet.Config
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results & coverage
+TestResult*/
+[Tt]est[Rr]esults/
+*.coverage
+*.coveragexml
+.coverage
+coverage*/
+
+# MAUI / platform packaging outputs
+**/AppPackages/
+**/BundleArtifacts/
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.msixupload
+*.app
+*.ipa
+*.apk
+*.aab
+*.xcarchive
+*.tpk
+
+# Android signing
+*.keystore
+*.keystore.jks
+*.jks
+
+# iOS/macOS signing
+*.mobileprovision
+*.provisionprofile
+*.cer
+*.p12
+
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+resharper-host/
+
+# Local environment
+.env
+.env.*
+
+# Azure Pipelines (optional local config)
+/.azure-pipelines/
+
