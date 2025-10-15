@@ -32,6 +32,13 @@ All contributors must keep the project aligned with the agreed MAUI structure to
 - Platform-specific changes remain under `Platforms/*` only.
 
 ## Documentation
-- Any structure changes must be reflected in `docs/file-structure.md`.
+- Keep all project documentation in `documentation/` at the root.
+- `documentation/overview.md` — high-level app overview.
+- `documentation/requirements/` — requirements and documentation rules.
+- `documentation/technical/` — technical docs:
+  - `getting-started.md` — how to run the project;
+  - `technology-stack.md` — technologies and versions;
+  - `architecture.md` — architecture overview.
+- Any structure changes must be reflected in `documentation/technical/file-structure.md`.
 
 
