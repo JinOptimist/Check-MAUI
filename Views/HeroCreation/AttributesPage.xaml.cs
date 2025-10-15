@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Microsoft.Extensions.Logging;
 
 namespace HelloMaui.Views.HeroCreation;
@@ -8,11 +9,24 @@ public partial class AttributesPage : ContentPage
     private const int TotalBudget = 75;
     public string DraftId { get; set; } = string.Empty;
 
-    private sealed class AttributeItem
+    private sealed class AttributeItem : INotifyPropertyChanged
     {
         public string Id { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
-        public int Value { get; set; }
+        private int _value;
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                if (_value == value)
+                    return;
+                _value = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Value)));
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 
     private readonly ObservableCollection<AttributeItem> _items = new();
@@ -82,10 +96,6 @@ public partial class AttributesPage : ContentPage
         {
             if (CurrentSpent() >= TotalBudget) return;
             item.Value += 1;
-            // Force refresh
-            var idx = _items.IndexOf(item);
-            _items.RemoveAt(idx);
-            _items.Insert(idx, item);
             UpdateBudgetLabel();
             PersistAsync();
         }
@@ -97,9 +107,6 @@ public partial class AttributesPage : ContentPage
         {
             if (item.Value <= 0) return;
             item.Value -= 1;
-            var idx = _items.IndexOf(item);
-            _items.RemoveAt(idx);
-            _items.Insert(idx, item);
             UpdateBudgetLabel();
             PersistAsync();
         }
