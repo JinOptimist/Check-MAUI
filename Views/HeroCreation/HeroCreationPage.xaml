@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="HelloMaui.Views.HeroCreation.HeroCreationPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Title="Создание героя">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Label
+			Text="Создание героя"
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			Style="{StaticResource Headline}" />
+
+		<Button
+			Grid.Row="1"
+			Text="Начать создание"
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			Clicked="OnStartCreationClicked" />
+	</Grid>
+
+</ContentPage>
+

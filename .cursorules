@@ -20,6 +20,16 @@ All contributors must keep the project aligned with the agreed MAUI structure to
 - Put application services in `Services/` (subfolders by domain, e.g., `Api/`, `Storage/`).
 - Put repositories and data access in `Data/` (e.g., `Repositories/`, `LocalDb/`).
 
+## Logging
+- Use `Microsoft.Extensions.Logging` `ILogger<T>` via DI; avoid static/global loggers.
+- Prefer structured logging with named properties (e.g., `{HeroId}`, `{Operation}`) over string concatenation.
+- Choose levels appropriately: `Trace/Debug` (dev diagnostics), `Information` (key lifecycle events), `Warning` (recoverable anomalies), `Error` (failures), `Critical` (app-threatening issues).
+- Include actionable context (IDs, counts, elapsed time); never log secrets or PII.
+- Log exceptions with stack trace using `logger.LogError(ex, "... {Context}", ...)`.
+- For long-running operations, log start and completion with duration.
+- For public APIs/background jobs, prefer using `EventId` to aid filtering.
+- Добавляйте информативные логи — это ускорит поиск и устранение проблем в коде.
+
 ## Namespaces
 - Namespaces must mirror folders (e.g., `HelloMaui.Views.Pages.MainPage`).
 - XAML `x:Class` should match the fully qualified type.
@@ -30,6 +40,10 @@ All contributors must keep the project aligned with the agreed MAUI structure to
 - Updated/moved files have corrected namespaces and `x:Class`.
 - No XAML or page code-behind files in the repository root.
 - Platform-specific changes remain under `Platforms/*` only.
+- После любого изменения кода, проверять что проект билдиться
+- В Cursor: после применённых edits автоматически выполнять сборку
+  - Windows PowerShell: `dotnet build HelloMaui.sln -c Debug`
+  - Ошибки сборки исправлять до следующих изменений кода
 
 ## Documentation
 - Keep all project documentation in `documentation/` at the root.

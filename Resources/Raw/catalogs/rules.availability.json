@@ -1,0 +1,11 @@
+{
+  "rules": [
+    { "code": "RACE.INCOMPATIBLE.elf.PROFESSION.gladiator", "appliesWhen": { "race": "elf" }, "blocks": { "profession": ["gladiator"] } },
+    { "code": "RACE.INCOMPATIBLE.dwarf.PROFESSION.ranger", "appliesWhen": { "race": "dwarf" }, "blocks": { "profession": ["ranger"] } },
+    { "code": "RACE.INCOMPATIBLE.orc.PROFESSION.priest", "appliesWhen": { "race": "orc" }, "blocks": { "profession": ["priest", "merchant", "ranger"] } },
+    { "code": "PROFESSION.INCOMPATIBLE.blacksmith.HOBBY.herbalism", "appliesWhen": { "profession": "blacksmith" }, "blocks": { "hobby": ["herbalism"] } },
+    { "code": "RACE.INCOMPATIBLE.orc.HOBBY.calligraphy", "appliesWhen": { "race": "orc" }, "blocks": { "hobby": ["calligraphy", "painting"] } }
+  ]
+}
+
+

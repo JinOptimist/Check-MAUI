@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="HelloMaui.Views.HeroCreation.ProfessionOrSurvivalPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Title="Профессия или Способ">
+
+	<VerticalStackLayout Padding="16" Spacing="12">
+		<Label x:Name="Header" Text="Выберите профессию" Style="{StaticResource Title}" />
+		<CollectionView x:Name="ItemsView" SelectionMode="Single" SelectionChanged="OnItemSelected">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Grid Padding="8">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Name}" FontAttributes="Bold" />
+						<Label Grid.Row="1" Text="{Binding HintShort}" FontSize="12" TextColor="Gray" />
+					</Grid>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</VerticalStackLayout>
+
+</ContentPage>
+
+
+
